@@ -1,4 +1,4 @@
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -6,366 +6,465 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    body {
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        margin: 0;
-        padding: 0;
-        background-color: #f4f4f4;
-        font-size: 16px; /* Tamaño base más grande */
-        line-height: 1.6;
+    
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Segoe+UI:wght@300;400;600;700&family=Roboto:wght@300;400;500;700&display=swap');
+
+.contenedor_general {
+    max-width: 95vw;
+    margin: 0 auto;
+    background-color: #ffffff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    /* Fuente principal para el contenido */
+    font-family: 'Segoe UI', 'Roboto', 'Arial', sans-serif;
+}
+
+.nav_menu {
+    background-color: #ffffff;
+    padding: 15px 30px;
+    border-bottom: 2px solid #007bff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.nav_menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.nav_menu ul li a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    padding: 12px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav_menu ul li a:hover {
+    color: #fff;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+}
+
+.home {
+    background: linear-gradient(135deg, #001f3f 0%, #0066cc 50%, #007bff 100%);
+    color: white;
+    padding: 80px 40px;
+    text-align: left;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 500px;
+    background-size: 200% 200%;
+    animation: gradientShift 6s ease infinite;
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
     }
 
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+.home .main-content {
+    flex-grow: 1;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    max-width: 75%;
+}
+
+.home h1 {
+    /* Aumentado ligeramente para más impacto */
+    font-size: clamp(2.8rem, 5.5vw, 4.2rem);
+    margin-bottom: 30px;
+    color: white;
+    text-align: center;
+    width: 100%;
+    font-weight: 700;
+    /* Sombra más pronunciada */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+    /* Ligeramente más espaciado */
+    letter-spacing: 1.5px;
+    /* Fuente para títulos */
+    font-family: 'Montserrat', sans-serif;
+}
+
+.home p {
+    /* Aumentado ligeramente para mejor lectura */
+    font-size: clamp(1.2rem, 2.5vw, 1.5rem);
+    /* Mayor interlineado */
+    line-height: 1.8;
+    margin-bottom: 30px;
+    text-align: justify;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    font-weight: 300;
+}
+
+.home::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #00aaff, #001f3f);
+    transform: skewY(-45deg);
+    transform-origin: top right;
+    z-index: 1;
+}
+
+.home .imagen_django {
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 3;
+    max-width: 280px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease;
+}
+
+.home .imagen_django:hover {
+    transform: scale(1.05);
+}
+
+.home .imagen_django img {
+    max-width: 220px;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.contenedor {
+    display: flex;
+    padding: 40px;
+    gap: 40px;
+    flex-direction: row;
+    align-items: flex-start;
+    max-width: 100%;
+}
+
+.sidebar_navegacion {
+    flex: 0 0 auto;
+    width: 300px;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    padding: 0;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: sticky;
+    top: 20px;
+    max-height: 80vh;
+}
+
+.sidebar_navegacion h1 {
+    font-size: 1.5rem;
+    /* Tamaño de fuente para el título del sidebar */
+    color: #001f3f;
+    padding: 20px 25px;
+    margin: 0;
+    background-color: #e2e6ea;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    font-weight: 600;
+    font-family: 'Montserrat', sans-serif;
+    /* Consistencia con otros títulos */
+}
+
+.sidebar_navegacion ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar_navegacion ul li {
+    margin-bottom: 0;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.sidebar_navegacion ul li:last-child {
+    border-bottom: none;
+}
+
+.sidebar_navegacion ul li a {
+    display: block;
+    text-decoration: none;
+    color: #333;
+    font-weight: 500;
+    padding: 18px 25px;
+    border-left: 4px solid transparent;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    position: relative;
+    z-index: 2;
+    overflow: hidden;
+}
+
+.sidebar_navegacion ul li a::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    transition: width 0.3s ease;
+    z-index: 1;
+}
+
+.sidebar_navegacion ul li a:hover::before,
+.sidebar_navegacion ul li a.active::before {
+    width: 100%;
+}
+
+.sidebar_navegacion ul li a:hover,
+.sidebar_navegacion ul li a.active {
+    color: white;
+    border-left-color: #007bff;
+    transform: translateX(5px);
+}
+
+.contenedor_informacion {
+    flex-grow: 1;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    width: 100%;
+}
+
+card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    box-sizing: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+}
+
+card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+}
+
+card h1 {
+    color: #001f3f;
+    /* Aumentado ligeramente */
+    font-size: clamp(2rem, 4vw, 2.8rem);
+    margin-bottom: 25px;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 15px;
+    /* Misma fuente que el título principal */
+    font-family: 'Montserrat', sans-serif;
+}
+
+card h1::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 2px;
+}
+
+card p {
+    /* Mayor interlineado */
+    line-height: 1.8;
+    color: #444;
+    /* Ligeramente más grande */
+    font-size: clamp(1.05rem, 2vw, 1.25rem);
+    /* Justificado para bloques de texto limpios */
+    text-align: justify;
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+card p strong {
+    color: #001f3f;
+    font-weight: 600;
+}
+
+/* Unified styling for iframes and images */
+card iframe,
+card img {
+    width: 100%;
+    max-width: 100%;
+    height: 450px;
+    /* This makes images and videos the same height */
+    margin-top: 25px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    object-fit: contain;
+    /* Prevents images from stretching and maintains aspect ratio */
+}
+
+/* Responsive design mejorado */
+@media (max-width: 768px) {
     .contenedor_general {
-        max-width: 95vw;
-        margin: 0 auto;
-        background-color: #ffffff;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
-        border-radius: 10px;
-        overflow: hidden;
-    }
-
-    .nav_menu {
-        background-color: #ffffff;
-        padding: 15px 30px;
-        border-bottom: 2px solid #007bff;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 30px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    }
-
-    .nav_menu ul {
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        display: flex;
-        gap: 40px;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    .nav_menu ul li a {
-        text-decoration: none;
-        color: #333;
-        font-weight: 600;
-        padding: 12px 20px;
-        border-radius: 25px;
-        transition: all 0.3s ease;
-        font-size: 1.1rem;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .nav_menu ul li a:hover {
-        color: #fff;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        transform: translateY(-2px);
-        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-    }
-
-    .home {
-        background: linear-gradient(135deg, #001f3f 0%, #0066cc 50%, #007bff 100%);
-        color: white;
-        padding: 80px 40px;
-        text-align: left;
-        position: relative;
-        overflow: hidden;
-        display: flex;
-        flex-direction: column;
-        min-height: 500px;
-        background-size: 200% 200%;
-        animation: gradientShift 6s ease infinite;
-    }
-
-    @keyframes gradientShift {
-        0% { background-position: 0% 50%; }
-        50% { background-position: 100% 50%; }
-        100% { background-position: 0% 50%; }
-    }
-
-    .home .main-content {
-        flex-grow: 1;
-        position: relative;
-        z-index: 2;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        max-width: 75%;
-    }
-
-    .home h1 {
-        font-size: clamp(2.5rem, 5vw, 4rem);
-        margin-bottom: 30px;
-        color: white;
-        text-align: center;
-        width: 100%;
-        font-weight: 700;
-        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        letter-spacing: 1px;
-    }
-
-    .home p {
-        font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-        line-height: 1.7;
-        margin-bottom: 30px;
-        text-align: justify;
-        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-        font-weight: 300;
-    }
-
-    .home::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 200px;
-        height: 200px;
-        background: linear-gradient(135deg, #00aaff, #001f3f);
-        transform: skewY(-45deg);
-        transform-origin: top right;
-        z-index: 1;
-    }
-
-    .home .imagen_django {
-        background: rgba(255, 255, 255, 0.15);
-        backdrop-filter: blur(10px);
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-        position: absolute;
-        bottom: 30px;
-        right: 30px;
-        z-index: 3;
-        max-width: 280px;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-        transition: transform 0.3s ease;
-    }
-
-    .home .imagen_django:hover {
-        transform: scale(1.05);
-    }
-
-    .home .imagen_django img {
-        max-width: 220px;
-        height: auto;
-        display: block;
-        margin: 0 auto;
-        filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+        max-width: 100%;
     }
 
     .contenedor {
-        display: flex;
-        padding: 40px;
-        gap: 40px;
-        flex-direction: row;
-        align-items: flex-start;
-        max-width: 100%;
+        flex-direction: column;
+        padding: 20px;
+        gap: 30px;
+        /* Reducir el gap en móviles */
     }
 
     .sidebar_navegacion {
-        flex: 0 0 auto;
-        width: 300px;
-        background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-        padding: 0;
-        border-radius: 15px;
-        box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-        overflow: hidden;
-        position: sticky;
-        top: 20px;
-        max-height: 80vh;
+        width: 100%;
+        border-right: none;
+        border-bottom: 1px solid #dcdcdc;
+        margin-bottom: 20px;
+        position: static;
+        /* Eliminar sticky en móviles para evitar problemas de scroll */
+        max-height: none;
+        /* Eliminar max-height en móviles */
+    }
+
+    .sidebar_navegacion h1 {
+        text-align: center;
+        padding: 15px 20px;
     }
 
     .sidebar_navegacion ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        /* Cambiar a horizontal para la navegación en móviles */
+        overflow-x: auto;
+        /* Permitir scroll horizontal si hay muchos ítems */
+        -webkit-overflow-scrolling: touch;
+        /* Suavizar el scroll en iOS */
+        justify-content: flex-start;
+        /* Alinear ítems al inicio */
+        padding: 10px 0;
     }
 
     .sidebar_navegacion ul li {
-        margin-bottom: 0;
-        border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        flex-shrink: 0;
+        /* Evitar que los ítems se encojan */
+        border-bottom: none;
+        border-right: 1px solid rgba(0, 0, 0, 0.05);
+        /* Separador vertical */
     }
 
     .sidebar_navegacion ul li:last-child {
-        border-bottom: none;
+        border-right: none;
     }
 
     .sidebar_navegacion ul li a {
-        display: block;
-        text-decoration: none;
-        color: #333;
-        font-weight: 500;
-        padding: 18px 25px;
-        border-left: 4px solid transparent;
-        transition: all 0.3s ease;
-        font-size: 1.1rem;
-        position: relative;
-        overflow: hidden;
+        padding: 10px 15px;
+        font-size: 0.95rem;
+        white-space: nowrap;
+        /* Evitar que el texto se rompa */
     }
 
-    .sidebar_navegacion ul li a::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        transition: width 0.3s ease;
-        z-index: 1;
+    .home {
+        padding: 60px 20px;
+        /* Reducir padding en móviles */
+        min-height: 400px;
     }
 
-    .sidebar_navegacion ul li a:hover::before,
-    .sidebar_navegacion ul li a.active::before {
-        width: 100%;
+    .home h1 {
+        font-size: 2.2em;
+        /* Ajuste para títulos en móviles */
     }
 
-    .sidebar_navegacion ul li a:hover,
-    .sidebar_navegacion ul li a.active {
-        color: white;
-        border-left-color: #007bff;
-        transform: translateX(5px);
-        position: relative;
-        z-index: 2;
+    .home p {
+        font-size: 1.05rem;
+        /* Ajuste para texto en móviles */
+        text-align: left;
+        /* Volver a alinear a la izquierda en móviles si se prefiere */
     }
 
-    .sidebar_navegacion ul li:first-child a {
-        color: white;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        border-left-color: #007bff;
+    .home .imagen_django {
+        position: static;
+        margin-top: 30px;
+        align-self: center;
+        max-width: 200px;
+        /* Reducir tamaño de la imagen de Django en móviles */
+        padding: 15px;
     }
 
-    .sidebar_navegacion ul li:first-child a::before {
-        width: 100%;
-    }
-
-    .contenedor_informacion {
-        flex-grow: 1;
-        padding: 0;
-        display: flex;
-        flex-direction: column;
-        gap: 50px;
-        width: 100%;
+    .home .imagen_django img {
+        max-width: 150px;
     }
 
     card {
-        background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-        padding: 40px;
-        border-radius: 20px;
-        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-        width: 100%;
-        box-sizing: border-box;
-        border: 1px solid rgba(0, 0, 0, 0.05);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-        position: relative;
-        overflow: hidden;
-    }
-
-    card::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        height: 4px;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-    }
-
-    card:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+        padding: 30px 25px;
+        /* Reducir padding de las tarjetas */
     }
 
     card h1 {
-        color: #001f3f;
-        font-size: clamp(1.8rem, 4vw, 2.5rem);
-        margin-bottom: 25px;
-        font-weight: 700;
-        position: relative;
-        padding-bottom: 15px;
-    }
-
-    card h1::after {
-        content: '';
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 60px;
-        height: 3px;
-        background: linear-gradient(135deg, #007bff, #0056b3);
-        border-radius: 2px;
+        font-size: 1.8rem;
+        /* Ajuste para títulos de tarjeta en móviles */
+        margin-bottom: 20px;
     }
 
     card p {
-        line-height: 1.8;
-        color: #444;
-        font-size: clamp(1rem, 2vw, 1.2rem);
-        text-align: justify;
-        margin-bottom: 20px;
-        font-weight: 400;
+        font-size: 1rem;
+        /* Ajuste para texto de tarjeta en móviles */
+        line-height: 1.7;
     }
 
-    card p strong {
-        color: #001f3f;
-        font-weight: 600;
-    }
-
-    card iframe {
-        width: 100%;
-        max-width: 100%;
-        height: 450px;
-        margin-top: 25px;
-        border-radius: 15px;
-        border: none;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    }
-
+    card iframe,
     card img {
-        max-width: 100%;
-        height: auto;
+        height: 250px;
+        /* Reducir la altura de videos/imágenes en móviles */
         margin-top: 20px;
-        border-radius: 10px;
-        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
     }
-
-    /* Responsive design mejorado */
-    @media (max-width: 768px) {
-        .contenedor_general {
-            max-width: 100%;
-        }
-        
-        .contenedor {
-            flex-direction: column;
-            padding: 20px;
-        }
-        
-        .sidebar_navegacion {
-            width: 100%;
-            border-right: none;
-            border-bottom: 1px solid #dcdcdc;
-            margin-bottom: 20px;
-        }
-        
-        .home .main-content {
-            max-width: 100%;
-        }
-        
-        .home .imagen_django {
-            position: static;
-            margin-top: 20px;
-            align-self: center;
-        }
-        
-        .home h1 {
-            font-size: 2.5em;
-        }
-    }
+}
     </style>
 </head>
-    <body>
+<body>
     <div class="contenedor_general">
         <nav class="nav_menu">
             <ul>
@@ -403,6 +502,7 @@
                     <p>Django puede definirse como un framework de desarrollo web full-stack que sigue el patrón arquitectónico Model-View-Template (MVT), una variación del patrón Model-View-Controller (MVC). Su filosofía principal es "Don't Repeat Yourself" (DRY - No te Repitas), lo que significa que el código debe ser reutilizable y no debe haber duplicidad innecesaria. Viene con una gran cantidad de componentes preconstruidos y herramientas que facilitan casi todos los aspectos del desarrollo web, desde la autenticación de usuarios hasta la gestión de bases de datos y la creación de interfaces de administración.</p>
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/B8OlRdYwNlA?si=Wz1fB_7lT2FP4RUS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </card>
+                
 
                 <card class="Funciones" id="funciones">
                     <h1>2. Funciones</h1>
@@ -410,7 +510,7 @@
 
 Mapeo Objeto-Relacional (ORM): Permite interactuar con bases de datos utilizando objetos Python en lugar de SQL puro, lo que simplifica la manipulación de datos.
 
-**Sistema de URL: **Un enrutador de URL potente que mapea URLs a vistas de Python.
+Sistema de URL: Un enrutador de URL potente que mapea URLs a vistas de Python.
 
 Motor de Plantillas: Un sistema para generar HTML dinámico que separa la lógica de la presentación.
 
@@ -424,11 +524,12 @@ Manejo de Archivos: Facilita la carga y gestión de archivos estáticos y de med
 
 Seguridad: Incluye características de seguridad integradas para proteger contra vulnerabilidades comunes como SQL injection, cross-site scripting (XSS), cross-site request forgery (CSRF), etc.
 </p>
-                </card>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hcX26kT-JAI?si=STgDkhUzld1HqE8A" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+</card>
 
-                <card class="Estructura" id="estructura">
-                    <h1>3. Estructura</h1>
-                    <p>Aunque a menudo se le compara con MVC, Django implementa el patrón Model-View-Template (MVT).
+        <card class="Estructura" id="estructura">
+            <h1>3. Estructura</h1>
+            <p>Aunque a menudo se le compara con MVC, Django implementa el patrón Model-View-Template (MVT).
 
 Model (Modelo):
 
@@ -477,10 +578,10 @@ La View pasa los datos necesarios a la Template.
 La Template renderiza el HTML (o cualquier otra salida) con los datos proporcionados.
 
 Django devuelve la respuesta generada al navegador del usuario
-</p>
+<img src="https://www.cnac.es/wp-content/webpc-passthru.php?src=https://www.cnac.es/wp-content/uploads/DJANGO-ARTICULO2.png&nocache=1" alt="Estructura" style="max-width: 100%; height: auto; margin-top: 15px;">
                 </card>
 
-                <card class="Ventajas" id="ventajas">
+<card class="Ventajas" id="ventajas">
                     <h1>4. Ventajas</h1>
                     <p>Desarrollo Rápido ("Rapid Development"): Gracias a su filosofía "baterías incluidas" y su enfoque en la reutilización de código, Django permite construir aplicaciones complejas en mucho menos tiempo.
 
@@ -498,24 +599,28 @@ Panel de Administración Automático: Un ahorro de tiempo enorme para gestionar 
 
 Versatilidad: Apto para una amplia variedad de proyectos, desde blogs simples hasta complejos sistemas de gestión de contenido y APIs RESTful.
 </p>
-                </card>
+<img src=https://lapublicidadeninternet.com/wp-content/uploads/2017/07/publicidad-internet-ventajas-desventajas-1-960x421.png>
+                    <br>
+<a href="https://djangostars.com/blog/top-14-pros-using-django-web-development/" target="_blank">Ventajas de usar Django</a>
+</card> 
 
-                <card class="Desventajas" id="desventajas">
-                    <h1>5. Desventajas</h1>
-                    <p>Curva de Aprendizaje Inicial: Para principiantes en el desarrollo web, la gran cantidad de conceptos y componentes de Django puede ser abrumadora al principio.
-
+        <card class="Desventajas" id="desventajas">
+            <h1>5. Desventajas</h1>
+            <p>Curva de Aprendizaje Inicial: Para principiantes en el desarrollo web, la gran cantidad de conceptos y componentes de Django puede ser abrumadora al principio.
+<br>
 Menos "Micro": A diferencia de frameworks más ligeros como Flask, Django puede parecer un poco "pesado" para proyectos muy pequeños o APIs simples donde no se necesita toda su funcionalidad.
-
+<br>
 Flexibilidad Limitada en Algunos Casos: Aunque es altamente configurable, la forma "opinionada" de Django de hacer las cosas puede ser restrictiva si se desea una personalización extrema en ciertos aspectos.
-
+<br>
 Renderizado de Plantillas: El lenguaje de plantillas de Django es potente, pero a veces, para interfaces de usuario muy interactivas, se suele complementar con frameworks de frontend como React o Vue.js, lo que añade complejidad.
 </p>
+<img src="https://silvaniapc.es/wp-content/uploads/2016/01/ventajas-desventajas-jimdo-570x379.jpg" alt="Desventajas" style="max-width: 100%; height: auto; margin-top: 15px;">
                 </card>
 
-                <card class="Ejemplos" id="conclusiones">
-                    <h1>6. Conclusiones</h1>
-                    <p>Aquí puedes agregar tu texto de conclusiones.</p>
-                    <img src="https://via.placeholder.com/400x200?text=Imagen+de+Conclusiones" alt="Conclusiones" style="max-width: 100%; height: auto; margin-top: 15px;">
+        <card class="Ejemplos" id="conclusiones">
+            <h1>6. Usos de Django</h1>
+            <p>Aquí puede encontrar grandes empreseas que usan Django para sus proyectos.</p>
+<img src ="https://static.tildacdn.net/tild6135-3935-4039-b838-373465656665/TXfbXzo.png">
                 </card>
             </div>
         </div>
